@@ -14,7 +14,7 @@ const registerUser = async (req, res) => {
   const newUser = new User({ fullName, email, password });
   newUser.save();
 
-  return res.status(201).json({ msg: "User created successfully" });
+  return res.redirect("/login");
 };
 
 const loginUser = async (req, res) => {
@@ -29,7 +29,7 @@ const loginUser = async (req, res) => {
   if (isUserExists.password !== password)
     return res.json({ msg: "Password does not match" });
 
-  return res.json({ msg: "User login" });
+  return res.redirect("/job");
 };
 
 export { registerUser, loginUser };
